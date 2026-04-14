@@ -1,0 +1,28 @@
+{
+  "system_id": "VOL_EDGE_AUTO_ROUTER_01",
+  "operational_market": "Nashville_865",
+  "logic_rules": [
+    {
+      "denial_category": "COB (Coordination of Benefits)",
+      "trigger": "Remark Code MA04",
+      "action": "AUTO_ROUTE",
+      "destination": "Patient_Access_Front_End",
+      "priority": "HIGH"
+    },
+    {
+      "denial_category": "Medical Necessity",
+      "trigger": "Remark Code N115",
+      "action": "TRIGGER_AUDIT",
+      "destination": "Clinical_CDI_Team",
+      "priority": "URGENT"
+    },
+    {
+      "denial_category": "Clerical / Demo Mismatch",
+      "trigger": "Remark Code MA61",
+      "action": "SELF_HEAL",
+      "destination": "Auto_Correction_Bot",
+      "priority": "LOW"
+    }
+  ],
+  "performance_target": "Reduce Manual Routing by 85%"
+}
