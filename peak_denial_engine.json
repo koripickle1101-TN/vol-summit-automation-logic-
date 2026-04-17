@@ -1,0 +1,23 @@
+{
+  "system": "VOL SUMMIT RCM",
+  "module": "PEAK DENIAL RECOVERY",
+  "logic_version": "2026.1.0",
+  "denial_resolution_protocols": {
+    "CO-18": {
+      "reason": "Duplicate claim",
+      "action": "Audit previous payment; if unpaid, append -76 modifier and resubmit.",
+      "urgency": "High"
+    },
+    "CO-16": {
+      "reason": "Missing information",
+      "action": "Trigger automated clinical documentation request; scrub for missing box 24J.",
+      "urgency": "Immediate"
+    },
+    "PR-1": {
+      "reason": "Deductible amount",
+      "action": "Transfer balance to patient statement; trigger automated payment plan offer.",
+      "urgency": "Routine"
+    }
+  },
+  "operational_goal": "Maximize net collection rate by intercepting CO-code errors within 24 hours."
+}
