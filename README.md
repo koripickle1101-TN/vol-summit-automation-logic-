@@ -1,22 +1,24 @@
-VOL EDGE AUTOMATION LOGIC
-Focus: Process Automation and Scripted Efficiency
+VOL EDGE RCM: AUTOMATION AND PRIOR AUTHORIZATION LOGIC
+Architect: Kori Nichole Pickle | BSHA (Expected March 2027)
 
-STRATEGIC OBJECTIVE
-Development of specialized logic scripts and automated process maps designed to eliminate manual intervention in repetitive revenue cycle tasks. This repository focuses on increasing speed to payment through automated denial routing and payer response tracking.
+OVERVIEW
+This repository documents the automated routing protocols and decision trees utilized to intercept clinical scheduling requests and initiate prior authorization pathways, minimizing manual front-desk data entry.
 
-OPERATIONAL IMPACT
-Efficiency: Reduction in manual data entry errors during patient registration
-Velocity: Accelerated accounts receivable follow up cycles via prioritized logic
-Security: HIPAA aligned automation structures and access controls
+FEATURES
+- Payer Logic Routing: Standardized matrices for high-volume procedural approvals.
+- Patient POV Notification: Automated communication triggers bridging the gap between payer and patient.
+- Front-End Denial Prevention: Hard-stops for missing clinical documentation.
 
-KEY CAPABILITIES
-Logic: Automated CPT trigger validation
-Tracking: Scripted monitoring for high value claim aging
-Optimization: Workflow mapping for lean administrative staffing
+USE CASES
+- Remote RCM teams designing error-resistant intake systems.
+- High-volume specialty clinics requiring rapid prior authorization turnaround.
 
-PART OF THE VOL EDGE RCM OPERATIONAL SUITE
-Developed by Kori Pickle
-Healthcare Operations and RCM Specialist
-Mascot, TN and Nashville Market
+STRUCTURE
+- /decision_trees: Visual logic pathways for payer portals.
+- /notification_triggers: Standard operating procedures for automated patient updates.
 
-© 2026 Kori Pickle | Mascot, TN | Nashville Market
+HOW TO USE
+Apply the provided decision trees to front-end intake software. Configure the system architecture to issue automated portal messages at Submission Initiated, Pending Review, and Final Decision milestones.
+
+FUTURE WORK
+Expanding the logic matrices to include automated appeal generation for standard technical denials based on ANSI remark codes
