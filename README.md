@@ -21,4 +21,4 @@ HOW TO USE
 Apply the provided decision trees to front-end intake software. Configure the system architecture to issue automated portal messages at Submission Initiated, Pending Review, and Final Decision milestones.
 
 FUTURE WORK
-Expanding the logic matrices to include automated appeal generation for standard technical denials based on ANSI remark codes
+Expanding the logic matrices to include automated appeal generation for standard technical denials based on ANSI remark codes.
