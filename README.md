@@ -1,24 +1,19 @@
-VOL EDGE RCM: AUTOMATION AND PRIOR AUTHORIZATION LOGIC
+VOL SUMMIT RCM™ | AUTOMATION LOGIC HUB
 Architect: Kori Nichole Pickle | BSHA (Expected March 2027)
 
-OVERVIEW
-This repository documents the automated routing protocols and decision trees utilized to intercept clinical scheduling requests and initiate prior authorization pathways, minimizing manual front-desk data entry.
+STRICT RULE: THE ONE-MOVE MANDATE (OMM-2026)
+One-time execution and done. No repetitive updates. No instructional filler.
 
-FEATURES
-- Payer Logic Routing: Standardized matrices for high-volume procedural approvals.
-- Patient POV Notification: Automated communication triggers bridging the gap between payer and patient.
-- Front-End Denial Prevention: Hard-stops for missing clinical documentation.
+REVENUE CYCLE MODULES IN THIS REPOSITORY
+- base_camp_schema.sql: SQL foundation for patient intake and insurance integrity.
+- peak_denial_engine.json: Predictive logic for claim denial recovery and resolution.
 
-USE CASES
-- Remote RCM teams designing error-resistant intake systems.
-- High-volume specialty clinics requiring rapid prior authorization turnaround.
+BRAND SPECIFICATIONS (VOL-COLOR-STACK)
+- Primary: Tennessee Orange (FF8200)
+- Secondary: Smokey Gray (4B4B4B)
+- Contrast: Black (0A0A0A)
 
-STRUCTURE
-- /decision_trees: Visual logic pathways for payer portals.
-- /notification_triggers: Standard operating procedures for automated patient updates.
+2027 TARGET
+Securing a 100% Remote Healthcare Operations or RCM Leadership role by May 5, 2027.
 
-HOW TO USE
-Apply the provided decision trees to front-end intake software. Configure the system architecture to issue automated portal messages at Submission Initiated, Pending Review, and Final Decision milestones.
-
-FUTURE WORK
-Expanding the logic matrices to include automated appeal generation for standard technical denials based on ANSI remark codes.
+Main Profile: https://github.com/koripickle1101-TN
