@@ -3,7 +3,7 @@
 ## 1) Objective
 Create a simple onboarding system for this repository that helps a new contributor start quickly, protect the main branch, and begin building an automation workflow.
 
-## 2) Step-by-step execution
+## 2) Step by step execution
 
 Step 1: Understand the repository assets
 - Read README.md for mission and modules.
@@ -26,6 +26,12 @@ Step 4: Build a sprint 1 automation prototype
 - Poll new eligibility and denial events every 15 minutes.
 - Create action tasks automatically and track KPI outcomes.
 
+Step 5: Resolve the 4 common ruleset issues
+- Issue 1: No target branch configured. Fix by setting Target Branches to main.
+- Issue 2: Pull request requirement missing. Fix by turning on Require pull request.
+- Issue 3: Approval count not set. Fix by setting Required approvals to 1.
+- Issue 4: Deletion protection off. Fix by turning on Restrict deletions.
+
 ## 3) Tools (free only)
 - GitHub web or mobile app
 - MySQL Community or PostgreSQL
@@ -33,7 +39,7 @@ Step 4: Build a sprint 1 automation prototype
 - GitHub Actions free tier
 - Metabase OSS
 
-## 4) Copy-paste output
+## 4) Copy paste output
 
 Ruleset Name: protect-main-v1
 Enforcement: Active
@@ -50,7 +56,7 @@ Bypass list: none
 - [ ] Read README.md for mission and modules
 - [ ] Load base_camp_schema.sql into local DB
 - [ ] Seed sample Patients, InsuranceProviders, EligibilityAudits rows
-- [ ] Run Intake_Leakage_Report and verify non Verified records only
+- [ ] Run Intake_Leakage_Report and verify non verified records only
 - [ ] Parse peak_denial_engine.json and map urgency to queue priority
 - [ ] Create one pseudo automation flow: event to rule to task to KPI
 - [ ] Configure protect-main-v1 ruleset on GitHub
