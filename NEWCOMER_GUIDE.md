@@ -1,45 +1,70 @@
 # Newcomer Guide
 
 ## 1) Objective
-Create a simple onboarding system for this repository that helps a new contributor start quickly, protect the main branch, and begin building an automation workflow.
+Set up GitHub CLI on Linux or BSD quickly, verify installation security, and enable contributors to use branch protection and pull request workflows in this repository.
 
 ## 2) Step by step execution
 
-Step 1: Understand the repository assets
-- Read README.md for mission and modules.
-- Use base_camp_schema.sql as the intake and eligibility data model.
-- Use peak_denial_engine.json as the denial action rule map.
+Step 1: Choose your install path
+- Recommended: official GitHub CLI packages from cli.github.com.
+- Community paths are available but are not maintained by the GitHub CLI team.
 
-Step 2: Configure branch protection first
-- Create one GitHub ruleset for main.
-- Set enforcement to Active.
-- Turn on only the minimum required rules listed below.
+Step 2: Verify signing keys before install
+- Confirm key fingerprints match:
+  - 2C6106201985B60E6C7AC87323F3D4EA75716059
+  - 7F38BBB59D064DBCB3D84D725612B36462313325
 
-Step 3: Run the 60 minute onboarding checklist
-- Load schema to local database.
-- Seed sample rows.
-- Run leakage report and confirm expected output.
-- Map denial urgency to queue priority.
+Step 3: Install GitHub CLI on your platform
+- Debian and Ubuntu: use official apt repository from cli.github.com.
+- RPM systems: use gh-cli repo for dnf5, dnf4, yum, or zypper.
+- BSD: use native package manager such as pkg, pkgin, or pkg_add depending on system.
 
-Step 4: Build a sprint 1 automation prototype
-- Build a Python worker that reads JSON rules.
-- Poll new eligibility and denial events every 15 minutes.
-- Create action tasks automatically and track KPI outcomes.
+Step 4: Verify installation and auth
+- Run gh --version.
+- Run gh auth login.
+- Run gh repo view to confirm repository access.
 
-Step 5: Resolve the 4 common ruleset issues
-- Issue 1: No target branch configured. Fix by setting Target Branches to main.
-- Issue 2: Pull request requirement missing. Fix by turning on Require pull request.
-- Issue 3: Approval count not set. Fix by setting Required approvals to 1.
-- Issue 4: Deletion protection off. Fix by turning on Restrict deletions.
+Step 5: Use GitHub CLI in this repo
+- Create branch: gh repo clone or git checkout -b feature branch.
+- Push changes and open PR: gh pr create.
+- Review checks and merge through pull request workflow.
+
+Step 6: Apply main branch ruleset
+- Use the ruleset block below.
+- Confirm direct delete or push to main is blocked.
 
 ## 3) Tools (free only)
+- GitHub CLI from official packages
 - GitHub web or mobile app
-- MySQL Community or PostgreSQL
-- Python 3
-- GitHub Actions free tier
-- Metabase OSS
+- Git
+- Bash shell
 
 ## 4) Copy paste output
+
+Debian or Ubuntu install:
+```bash
+(type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
+&& sudo mkdir -p -m 755 /etc/apt/keyrings \
+&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+&& sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+```
+
+Key verification command:
+```bash
+curl -fsSL -o - https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --show-keys
+```
+
+Post install checks:
+```bash
+gh --version
+gh auth login
+gh repo view
+```
 
 Ruleset Name: protect-main-v1
 Enforcement: Active
@@ -53,22 +78,8 @@ Rules:
 - Require deployments: OFF
 Bypass list: none
 
-- [ ] Read README.md for mission and modules
-- [ ] Load base_camp_schema.sql into local DB
-- [ ] Seed sample Patients, InsuranceProviders, EligibilityAudits rows
-- [ ] Run Intake_Leakage_Report and verify non verified records only
-- [ ] Parse peak_denial_engine.json and map urgency to queue priority
-- [ ] Create one pseudo automation flow: event to rule to task to KPI
-- [ ] Configure protect-main-v1 ruleset on GitHub
-
-Sprint Goal: reduce denial rework time and improve collection speed
-1) Build Python worker to load JSON rules
-2) Query new eligibility and denial events every 15 minutes
-3) Auto create action tasks by urgency
-4) Track 24 hour interception KPI
-5) Publish weekly savings report with hours recovered and dollars recovered
-
 ## 5) Expected result
-- Main branch protection is active and accidental deletions are blocked.
-- New contributors can onboard in about 60 minutes.
-- Team has a direct path from static logic files to scalable automation and measurable revenue cycle impact.
+- GitHub CLI is installed with official packages.
+- Contributor access is validated through gh auth.
+- Main branch is protected with minimal safe rules.
+- Team can create pull requests faster and scale collaboration safely.
